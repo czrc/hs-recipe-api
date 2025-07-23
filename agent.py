@@ -117,7 +117,7 @@ async def add_comment_to_state(ctx: Context, review_comment: str) -> str:
 
 async def add_context_to_state(ctx: Context, context: str) -> str:
     current_state = await ctx.store.get("state")
-    current_state["gathered_contexts"] += f"\ncontext"
+    current_state["gathered_contexts"] += f"\n{context}"
     await ctx.store.set("state", current_state)
     return f"Context updated in state to: {context}"
 
